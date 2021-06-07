@@ -5,10 +5,26 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import nc20210515_card.card_Agriculture.C_A_LargeFarm;
 import nc20210515_card.card_Agriculture.C_A_SlashAndBurn;
-import nc20210515_card.card_Facilities.C_Faci_RealEstate;
 import nc20210515_card.card_Facilities.C_Faci_WareHouse;
+
+class Alphabet{
+	String name;
+
+	public Alphabet() {
+		super();
+	}
+	public Alphabet(String name) {
+		super();
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+}
 
 public class Main {
 	static int num = 3;
@@ -94,13 +110,52 @@ public class Main {
 		//		System.out.println(cards.isEmpty());
 
 //		kajoutest();
-		C_Faci_RealEstate f = new C_Faci_RealEstate();
-		C_A_LargeFarm a = new C_A_LargeFarm();
+//		C_Faci_RealEstate f = new C_Faci_RealEstate();
+//		C_A_LargeFarm a = new C_A_LargeFarm();
+//
+//		hh(f);
+//		hh(a);
+
+//		removeテスト
+//		remove()もclear()もその前に同じ型のリストに参照をさせればインスタンスは消えない
+		List<Alphabet> alph = new ArrayList<>();
+		List<Alphabet> alph2 = new ArrayList<>();
+		List<Integer> inte = new ArrayList<>();
+
+		alph.add(new Alphabet("A"));
+		alph.add(new Alphabet("B"));
+		alph.add(new Alphabet("C"));
+		alph.add(new Alphabet("D"));
+		alph.add(new Alphabet("E"));
+		alph.add(new Alphabet("F"));
+		alph.add(new Alphabet("G"));
+
+
+		for (int i = 0; i < 3; i++) {
+			Random rr = new Random();
+			int r = rr.nextInt(alph.size());
+			inte.add(r);
+			alph2.add(alph.remove(r));
+			System.out.println(alph2.get(i));
+		}
+		System.out.println("-------------");
 		
-		hh(f);
-		hh(a);
+		for (int i = 0; i < alph.size(); i++) {
+			System.out.println(alph.get(i));
+		}
 		
+		for (int i = alph2.size()-1; i >= 0; i--) {
+			alph.add(inte.get(i),alph2.remove(i));
+		}
+		System.out.println("-------------");
+		for (int i = 0; i < alph.size(); i++) {
+			System.out.println(alph.get(i));
+		}
 	}
+
+//	-------------------------------------------------------------------------
+//	-------------------------------------------------------------------------
+
 	public static void hh(Card name) {
 		String test = "〇";
 		System.out.println("【"+name.getType()+":"+name.getName()+":"+name.getPrice()
@@ -110,7 +165,7 @@ public class Main {
 		}
 		System.out.println("【"+name.getType()+":"+name.getName()+":"+name.getPrice()
 		+":"+name.getCost()+":"+test+"】");
-		
+
 		List<String> ssss= new ArrayList<>();
 		ssss.add("A");
 		ssss.add("B");
@@ -127,8 +182,8 @@ public class Main {
 		System.out.println(ssss.get(3));;
 	}
 
-	
-	
+
+
 	public static int b(int num) {
 		return num;
 	}

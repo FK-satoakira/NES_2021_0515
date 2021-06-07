@@ -34,6 +34,10 @@ public abstract class Card_Construction extends Card {
 		int num = board.SelectFromPlayerCard(player);
 		List<Card> playerCards = player.getCards();
 
+//		if(num==-1) {
+//			return true;
+//		}
+
 		if (playerCards.get(num).getType().equals("0")) {
 			System.out.println("消費財は建設不可です");
 			return true;

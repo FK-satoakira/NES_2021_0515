@@ -15,7 +15,6 @@ public class C_C_ErhuConstruction extends Card{
 	}
 	@Override
 	public boolean thisAbility(Player player, Board board) {
-//		カード説明
 
 		int count = 0;
 		for (int i = 0; i < player.getCards().size(); i++) {
@@ -27,13 +26,17 @@ public class C_C_ErhuConstruction extends Card{
 			System.out.println("このカードを使用する条件を満たしていません");return true;
 		}
 
-
+//		カード説明
 		System.out.println(this.getName()+"を使用します");
 		System.out.println("このカードは捨て札数が同じなら２つ同時に建設できます");
-		System.out.print("１枚目の");
+		System.out.println("1枚目の建設するカードを選んでください");
 
 //		1枚目を選択
 		int firstSelectCard = board.SelectFromPlayerCard(player);/*FBCnum＝firstbuildcard＝「１個めの建設」の略*/
+
+//		リセット処理
+//		if(firstSelectCard == -1) {return true;}
+
 		int costNumberForRoop = player.getCards().get(firstSelectCard).getCost();
 //		1枚目が消費財だった時の拒否の処理
 		if (player.getCards().get(firstSelectCard).getType().equals("0")) {
@@ -65,13 +68,18 @@ public class C_C_ErhuConstruction extends Card{
 
 
 
-
 //		ーーーーーーーーーーーーーーーーーーーー2枚目のカード選択ーーーーーーーーーーーーーーーーーーーー
-		System.out.print("２枚目の");
+		System.out.println("2枚目の建設するカードを選んでください");
 		int secondSelectCard = board.SelectFromPlayerCard(player);/*FBCnum＝firstbuildcard＝「１個めの建設」の略*/
 
+//		リセット処理
+//		if(secondSelectCard == -1) {
+//			player.getCards().add(firstSelectCard, mapConstructCard.remove(firstSelectCard));
+//			return true;
+//		}
+
 //		〖2枚目が消費財だった時の拒否の処理〗
-		if (player.getCards().get(secondSelectCard).getType().equals("0")) {
+		if (player.getCards().get(secondSelectCard).getType().equals("0") ) {
 
 //			ここで思ったが、MapじゃなくてListでもよかったかも。
 //			手札のもとあったindex番号に戻す
@@ -95,9 +103,6 @@ public class C_C_ErhuConstruction extends Card{
 //		2枚目を建設
 		player.getBoardOfPlayer().getCards().add(player.getCards().remove(secondSelectCard));
 
-
-
-
 //		ここから costNumberForRoop
 		for (int i = 0; i < costNumberForRoop; i++) {
 			Message.CardChoiceTrash(costNumberForRoop-i);
@@ -107,7 +112,7 @@ public class C_C_ErhuConstruction extends Card{
 		int playerBoardSize = player.getBoardOfPlayer().getCards().size()-1;
 
 		System.out.println(player.getBoardOfPlayer().getCards().get(playerBoardSize).getName()
-				+"と"+player.getBoardOfPlayer().getCards().get(playerBoardSize-1).getName()+"を建設しました");
+		+"と"+player.getBoardOfPlayer().getCards().get(playerBoardSize-1).getName()+"を建設しました");
 		return false;
 	}
 

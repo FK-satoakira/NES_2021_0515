@@ -12,7 +12,7 @@ public class Trash {
 
 
 //	＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ method/s ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-//	全てのメソッドにしトラッシュある消費財を除去する処理がされてある
+//	全てのメソッドにトラッシュにある消費財を除去する処理がされてある
 //	＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ method/s ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 
@@ -34,35 +34,31 @@ public class Trash {
 
 
 //	トラッシュにカードを入れてる
-	public void plusCard(Card card) {
-		for (int i = 0; i < this.cards.size(); i++) {
-			if(this.cards.get(i).getType().equals("0")) {
-				this.cards.remove(i);
-			}
-		}
-		this.cards.add(card);
-
-//		これでトラッシュの中身を確認できる
-//		System.out.println(this);
-	}
-
-
-
-//	上のコピー--------------------------
-//	public void plusCard(Card card, Board board) {
+//	public void plusCard(Card card) {
 //		for (int i = 0; i < this.cards.size(); i++) {
 //			if(this.cards.get(i).getType().equals("0")) {
 //				this.cards.remove(i);
-//			}else {
-//				board.plusDeck(card);
-//
 //			}
 //		}
-////		this.cards.add(card);
+//
+//		this.cards.add(card);
 //
 ////		これでトラッシュの中身を確認できる
-//		System.out.println(this);
+////		System.out.println(this);
 //	}
+
+
+
+//	上のメソッドのアレンジ--------------------------
+	public void plusCard(Card card, Board board) {
+		if(card.getType().equals("0")) {
+			this.cards.clear();
+		}else {
+			board.plusDeck(this.cards.remove(0));
+		}
+//		これでトラッシュの中身を確認できる
+//		System.out.println(this);
+	}
 //---------------------------------------
 
 //	いっぺんにトラッシュをセット

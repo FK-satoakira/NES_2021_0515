@@ -109,7 +109,7 @@ public class MoneyCalc {
 					}
 //					ok
 					System.out.println(shortfall-totalPrice + "ドル分のカードを転売してください");
-					Message.playerBoard(player);
+//					Message.playerBoard(player);System.out.print("sksksksksks");
 					int num = board.SelectFromPlayerBoard(player);
 					if(player.getBoardOfPlayer().getCards().get(num).getType().equals("施")) {
 						System.out.println("施設カードは売れません");

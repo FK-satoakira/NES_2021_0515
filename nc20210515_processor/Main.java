@@ -1,5 +1,7 @@
 package nc20210515_processor;
 
+import java.io.IOException;
+
 import nc20210515_card.card_Public.C_P_E_DepartmentStore;
 import nc20210515_card.card_Public.C_P_E_Expo;
 import nc20210515_card.card_Public.C_P_E_Stall;
@@ -11,7 +13,7 @@ import nc20210515_card.card_Public.C_P_S_Vocational;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Board board = new Board();
 		Player player = new Player(board);
 		FacilityCalc faciCalc = new FacilityCalc();
@@ -23,9 +25,10 @@ public class Main {
 //		System.out.println(scoreCalc.AllScore());
 //		System.out.println(scoreCalc.eachBonus());
 		int turnCount = 1;
+		Message.explanation();
 
 		//ターンのループ
-		while (turnCount < 2) {
+		while (turnCount < 10) {
 
 
 			if(turnCount==2) {board.plusCards(new C_P_E_Stall());}/*露店 2*/
@@ -51,11 +54,11 @@ public class Main {
 				faciCalc.facilityCalc(player);
 				System.out.println(scoreCalc.AllScore());
 				System.out.println(scoreCalc.eachBonus());
-
+				String hoshi = "";
 				for (int i = 0; i < actionCount; i++) {
-					System.out.print("★");
+					hoshi += "★";
 				}
-				System.out.println(turnCount + "ターン目,"+actionCount + "人目の行動");
+				System.out.println(turnCount + "ターン目  "+hoshi + actionCount+"人目の行動");
 				System.out.println();
 
 				//				enterきーを押させる処理。今何人目かわかりやすくするため
@@ -142,7 +145,17 @@ public class Main {
 		faciCalc.facilityCalc(player);
 		System.out.println(scoreCalc.AllScore());
 		System.out.println(scoreCalc.eachBonus());
-		player.getBoardOfPlayer().hyouji();
+//		player.getBoardOfPlayer().hyouji();
+		Message.playerCard(player);
+		Message.board(board);
+		Message.playerBoard(player);
+
+
+//		FileWriter fr = new FileWriter("C:\\Users\\自分のユーザー名\\Desktop\\フォルダ名\\nationaleconomy_log.txt",true);
+//		String s = scoreCalc.AllScore();
+//		fr.write(s+",\n");
+//		fr.flush();
+//		fr.close();
 	}
 
 }

@@ -5,17 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 import nc20210515_card.Card;
-import nc20210515_card.card_Agriculture.C_A_Farm;
-import nc20210515_card.card_Agriculture.C_A_LargeFarm;
-import nc20210515_card.card_Agriculture.C_A_Orchard;
-import nc20210515_card.card_Agriculture.C_A_SlashAndBurn;
-import nc20210515_card.card_Construction.C_C_ConstructionCompany;
-import nc20210515_card.card_Construction.C_C_ErhuConstruction;
-import nc20210515_card.card_Construction.C_C_GeneralContractor;
-import nc20210515_card.card_Etc.C_Etc_DesignOffice;
-import nc20210515_card.card_Etc.C_N_Pioneer;
-import nc20210515_card.card_FoodAndDrink.C_F_CoffeeShop;
-import nc20210515_card.card_FoodAndDrink.C_F_Restaurant;
 import nc20210515_card.card_Public.Card_and_IInvoke;
 
 
@@ -98,29 +87,29 @@ public class Player {
 //		---------------------------------------------------------------
 //		農業 4種
 
-/*焼畑*/		this.boardOfPlayer.plusCards(new C_A_SlashAndBurn());
-/*農場*/		this.boardOfPlayer.plusCards(new C_A_Farm());
-/*果樹園*/	this.boardOfPlayer.plusCards(new C_A_Orchard());
-/*大農園*/	this.boardOfPlayer.plusCards(new C_A_LargeFarm());
+///*焼畑*/		this.boardOfPlayer.plusCards(new C_A_SlashAndBurn());
+///*農場*/		this.boardOfPlayer.plusCards(new C_A_Farm());
+///*果樹園*/	this.boardOfPlayer.plusCards(new C_A_Orchard());
+///*大農園*/	this.boardOfPlayer.plusCards(new C_A_LargeFarm());
 
 //		無記載 7種
 
-/*開拓民*/	this.boardOfPlayer.plusCards(new C_N_Pioneer());
-/*設計事務*/	this.boardOfPlayer.plusCards(new C_Etc_DesignOffice());
-/*建設会社*/	this.boardOfPlayer.plusCards(new C_C_ConstructionCompany());
-/*ゼネコン*/	this.boardOfPlayer.plusCards(new C_C_GeneralContractor());
-/*二胡建設*/	this.boardOfPlayer.plusCards(new C_C_ErhuConstruction());
-/*喫茶店*/	this.boardOfPlayer.plusCards(new C_F_CoffeeShop());
-/*レストラン*/	this.boardOfPlayer.plusCards(new C_F_Restaurant());
-//
-////		工業 4種
-//
+///*開拓民*/	this.boardOfPlayer.plusCards(new C_N_Pioneer());
+///*設計事務*/	this.boardOfPlayer.plusCards(new C_Etc_DesignOffice());
+///*建設会社*/	this.boardOfPlayer.plusCards(new C_C_ConstructionCompany());
+///*ゼネコン*/	this.boardOfPlayer.plusCards(new C_C_GeneralContractor());
+///*二胡建設*/	this.boardOfPlayer.plusCards(new C_C_ErhuConstruction());
+///*喫茶店*/	this.boardOfPlayer.plusCards(new C_F_CoffeeShop());
+///*レストラン*/	this.boardOfPlayer.plusCards(new C_F_Restaurant());
+
+//		工業 4種
+
 ///*工場*/		this.boardOfPlayer.plusCards(new C_I_Factory());
 ///*化学工場*/	this.boardOfPlayer.plusCards(new C_I_ChemicalFactory());
 ///*製鉄所*/	this.boardOfPlayer.plusCards(new C_I_SteelMill());
 ///*自動車工場*/this.boardOfPlayer.plusCards(new C_I_CarFactory());
-////
-////		施設 9種
+
+//		施設 9種
 //
 ///*本社ビル*/	this.boardOfPlayer.plusCards(new C_Faci_HeadOfficeBuilding());
 ///*鉄道会社*/	this.boardOfPlayer.plusCards(new C_Faci_Train());
@@ -186,12 +175,10 @@ public class Player {
 	public void setWoker(int woker) {this.woker = woker;}
 	public void plusWoker(int woker) {this.woker += woker;}
 
-
 //	労働者制限
 	public int getWokerlimit() {return wokerlimit;}
 	public void plusWokerlimit(int wokerlimit) {this.wokerlimit += wokerlimit;}
 	public void clearWokerlimit() {this.wokerlimit = 5;}
-
 
 //	資金
 	public int getMoney() {return money;}
@@ -202,7 +189,6 @@ public class Player {
 			this.money = 0;
 		}
 	}
-
 
 //	借金...【ここ重要】小から大を引けば自然とマイナスになるのでここでは特別な処理はしていない。だからスコアもただ借金を足せばいい。
 	public int getDebit() {

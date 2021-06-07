@@ -50,8 +50,6 @@ public class Board {
 //		}
 
 //		this.cards.add(new ());
-//		this.cards.add(new ());
-//		this.cards.add(new ());
 //		this.cards.add(new C_C_GeneralContractor());
 //		this.cards.add(new C_C_ConstructionCompany());
 //		this.cards.add(new C_C_ErhuConstruction());
@@ -59,6 +57,7 @@ public class Board {
 		this.cards.add(new C_P_C_Carpenter());
 		this.cards.add(new C_P_S_School());
 		this.cards.add(new C_A_Farm());
+
 //		this.cards.add(new C_P_E_Stall());/*露店 2*/
 //		this.cards.add(new C_P_E_market());/*市場 3*/
 //		this.cards.add(new C_P_S_HighSchool());/*高等学校 4*/
@@ -139,11 +138,14 @@ public class Board {
 	public void useCard(Player player) {
 //		ボードかプレイヤーボードかを選択
 		boolean onroop = true;
+
 		while(onroop) {
 //			try {
 				Message.playerCard(player);
 //				［ボード］を使用する場合は[1]、
 //				［マイボード］を使用する場合は[2]を選択してください
+
+				Message.Board_Or_PlayerBoard();
 				Message.board(this);
 				Message.playerBoard(player);
 				int numberB_or_PB = GameBoard_Or_PlayerBoard(player);/*なぜintを返しる？→A.	GameBoardかPlayerBoardを選んで0ならボード、１ならプレイヤーボードにswitchしてる*/
@@ -153,8 +155,15 @@ public class Board {
 //				---------boradから選んでる----------
 					case 0:
 						Message.CardChoice();
-						Message.board(this);
+//						Message.board(this);
 						int boardCard = SelectFromBoard(player);
+
+//						＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//						if(boardCard==-1) {
+//							System.out.println("ボードを選び直します");continue;
+//						}
+//						＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 //						boardCard=(数値)のボードカードを使用している
 						onroop = this.cards.get(boardCard).ability(player, this);
 //						System.out.println(onroop);
@@ -176,8 +185,16 @@ public class Board {
 							System.out.println("プレイヤーボードは施設カードしかありません");continue;
 						}
 						Message.CardChoice();
-						Message.playerBoard(player);
+//						Message.playerBoard(player);
 						int playerBoardCard = SelectFromPlayerBoard(player);
+
+//						＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//						if(playerBoardCard==-1) {
+//							System.out.println("ボードを選び直します");continue;
+//						}
+//						＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
 //						playerBoardCard=(数値)のボードカードを使用している
 						onroop = player.getBoardOfPlayer().getCards().get(playerBoardCard).ability(player, this);
 //						焼畑の場合プレイヤーフィールドから消す
@@ -210,7 +227,15 @@ public class Board {
 //				Message.CardChoice();
 				Message.playerCard(player);/*手札を表示*/
 				int num = new java.util.Scanner(System.in).nextInt();
+
 				number = num-1;
+
+//				＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//				if(number==-1) {
+//					return number;
+//				}
+//				＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 				if(number < 0 || number+1 > player.getCards().size()) {
 					Message.rengeOver();continue;
 				}else if(!(number < 0 || number+1 > player.getCards().size())) {
@@ -236,10 +261,18 @@ public class Board {
 	public int SelectFromBoard(Player player) {
 		int number = 0;
 		boolean onRoop = true;
+		Message.board(this);
 		while(onRoop) {
 			try {
 				int num = new java.util.Scanner(System.in).nextInt();
 				number = num-1;
+
+//				＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//				if(number==-1) {
+//					return number;
+//				}
+//				＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 				if(number < 0 || number+1 > this.getCards().size()) {
 					Message.rengeOver();continue;
 				}else if(!(number < 0 || number+1 > this.getCards().size())) {
@@ -263,10 +296,20 @@ public class Board {
 	public int SelectFromPlayerBoard(Player player) {
 		int number = 0;
 		boolean onRoop = true;
+		Message.playerBoard(player);
+
 		while(onRoop) {
 			try {
 				int num = new java.util.Scanner(System.in).nextInt();
+
 				number = num-1;
+
+//				＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//				if(number==-1) {
+//					return number;
+//				}
+//				＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 				if(number < 0 || number+1 > player.getBoardOfPlayer().getCards().size()) {
 					Message.rengeOver();continue;
 				}else if(!(number < 0 || number+1 > player.getBoardOfPlayer().getCards().size())) {
@@ -328,7 +371,7 @@ public class Board {
 	public Trash getTrashCard() {return trashCard;}
 	public void plusTrashCard(Card card) {
 		this.trashCard.getCards().add(card);
-		this.trashCard.plusCard(card);
+		this.trashCard.plusCard(card,this);
 
 	}
 

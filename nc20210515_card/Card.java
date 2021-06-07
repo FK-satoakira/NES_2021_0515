@@ -118,8 +118,11 @@ public abstract class Card {
 		}
 		if(this.type.equals("施"))bool="✖";
 
-		return "【"+type+":" +name+":"+price+":"+ cost + ":" + bool + "】  ";
-//		return "";
+		return "【" + type + ":" + name + ":"+price+":"+ cost + ":" + bool + "】  ";
+
+//		慣れてくれば価格とコストは覚えれるので省略して見た目がすっきりする
+//		return "【"/* + type + ":"*/ + name + ":"/*+price+":"+ cost + ":"*/ + bool + "】  ";
+
 	}
 
 //	＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ セッターゲッター/f ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
