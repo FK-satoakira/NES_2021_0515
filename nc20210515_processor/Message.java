@@ -96,7 +96,8 @@ public class Message {
 		System.out.println("お金が足りません。"+m+"ドル分のカードを売ってください");
 	}
 
-	public static void explanation() {
+// これは単なる説明文なので慣れれば省略してかまわない
+	public static void 説明() {
 		System.out.println("【説明】\nこのゲームはカードを建設していき高得点を目指すゲームです\n"
 			+ "【無:設計事務:8:1:〇】 \n"
 			+ "カードにはこのような情報が記載されています。左から\n"
