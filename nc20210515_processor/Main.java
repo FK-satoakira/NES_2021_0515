@@ -1,5 +1,6 @@
 package nc20210515_processor;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 import nc20210515_card.card_Public.C_P_E_DepartmentStore;
@@ -25,6 +26,8 @@ public class Main {
 //		System.out.println(scoreCalc.AllScore());
 //		System.out.println(scoreCalc.eachBonus());
 		int turnCount = 1;
+
+//		これをコメントアウトすれば説明文が出なくなる
 		Message.explanation();
 
 		//ターンのループ
@@ -151,11 +154,11 @@ public class Main {
 		Message.playerBoard(player);
 
 
-//		FileWriter fr = new FileWriter("C:\\Users\\自分のユーザー名\\Desktop\\フォルダ名\\nationaleconomy_log.txt",true);
-//		String s = scoreCalc.AllScore();
-//		fr.write(s+",\n");
-//		fr.flush();
-//		fr.close();
+		FileWriter fr = new FileWriter("C:\\Users\\rsc07\\Desktop\\programming\\JAVA\\NE_2021\\nationaleconomy_log.txt",true);
+		String s = scoreCalc.AllScore();
+		fr.write(s+",\n");
+		fr.flush();
+		fr.close();
 	}
 
 }

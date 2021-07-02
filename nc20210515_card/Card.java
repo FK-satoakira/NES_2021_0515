@@ -15,7 +15,7 @@ public abstract class Card {
 
 
 	//	コンストラクタ
-//	public Card() {super();}
+	public Card() {super();}
 //	public Card(String name2) {}
 	public Card(String name, int price, int cost) {
 		this.name=name;
