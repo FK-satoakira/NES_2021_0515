@@ -152,13 +152,14 @@ public class Main {
 		Message.playerCard(player);
 		Message.board(board);
 		Message.playerBoard(player);
-
-
-		FileWriter fr = new FileWriter("C:\\Users\\rsc07\\Desktop\\programming\\JAVA\\NE_2021\\nationaleconomy_log.txt",true);
-		String s = scoreCalc.AllScore();
-		fr.write(s+",\n");
-		fr.flush();
-		fr.close();
+		
+		
+//		ファイルに得点を書き込みたい場合
+//		FileWriter fr = new FileWriter("C:\\Users\\ユーザー名\\.....\\log.txt",true);
+//		String s = scoreCalc.AllScore();
+//		fr.write(s+",\n");
+//		fr.flush();
+//		fr.close();
 	}
 
 }
