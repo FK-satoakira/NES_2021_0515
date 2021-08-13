@@ -27,7 +27,7 @@ public class Main {
 //		System.out.println(scoreCalc.eachBonus());
 		int turnCount = 1;
 
-//		これをコメントアウトすれば説明文が出なくなる
+//		これをコメントアウトすれば説明文が出なくなります。
 		Message.explanation();
 
 		//ターンのループ
